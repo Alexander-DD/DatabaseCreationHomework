@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatabaseCreation
 {
-    public partial class ApplicationContext : DbContext
+    public class ApplicationContext : DbContext
     {
         public ApplicationContext()
         {
@@ -101,9 +101,7 @@ namespace DatabaseCreation
                     .HasColumnName("phone");
             });
 
-            OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

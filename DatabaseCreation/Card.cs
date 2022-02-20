@@ -2,7 +2,7 @@
 
 namespace DatabaseCreation
 {
-    public partial class Card
+    public class Card
     {
         public Card()
         {
