@@ -39,9 +39,41 @@
                 {
                     Console.WriteLine(order);
                 }
-            }
 
-            Console.ReadKey();
+
+                string? input = null;
+                do
+                {
+                    Console.WriteLine("Хотите добавить нового пользователя? Y - yes, E - exit");
+                    Console.Write("Введите символ: ");
+                    input = Console.ReadLine();
+
+                    if (input == "Y")
+                    {
+                        string? name, phone;
+
+                        Console.WriteLine("Введите имя: ");
+                        name = Console.ReadLine();
+
+                        Console.WriteLine("Введите телефон: ");
+                        phone = Console.ReadLine();
+
+                        if (name == null || phone == null)
+                        {
+                            Console.WriteLine("Поле не может быть пустым");
+                        }
+                        else
+                        {
+                            User newUser = new User { Name = name, Phone = phone };
+
+                            db.Users.Add(newUser);
+                            Console.WriteLine($"Пользователь {newUser} добавлен.");
+                            db.SaveChanges();
+                        }
+                    }
+                }
+                while (input != null && input == "Y");
+            }
         }
     }
 }
